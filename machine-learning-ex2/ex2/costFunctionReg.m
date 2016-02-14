@@ -26,7 +26,7 @@ hypothesis = sigmoid(X*THETA);
 %% Compute the cost
 J = (1/m)*(-y'*log(hypothesis) - (1-y)'*log(1-hypothesis));
 % Regularized cost.
-J = J + (lambda/(2*m))*sum(THETA(2:cols).^2)
+J = J + (lambda/(2*m))*sum(THETA(2:cols).^2);
 %% Compute the gradient (In regularized GD, grad is different for j=0 and j = 1..n)
 
 % Gradient for j = 0 (we use index 1 as MATLAB starts indexes at 1)
