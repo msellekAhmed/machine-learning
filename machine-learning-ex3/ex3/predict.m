@@ -44,6 +44,16 @@ Z2 = [ones(m,1) Z2]; % 5000 rows, 26 cols
 % Output of layer 3 (output layer)
 hypothesis = sigmoid(Z2*Theta2'); % 5000 rows, 10 cols
 
+% Here we have 5000 x 400 input vector. 1 image = 400 pixels, hence we have
+% 5000 input images that we want to recognize as one of the numbers from 1
+% to 10.
+% Since we have 10 classes of classification, we have 10 activtion units
+% in the output layer. Thus, we have 10 columns in the output. So for each
+% row, we find the max value in the columns 1:10. The max value for that
+% row indicates that the input belongs to the class corresponding to
+% that output activation unit i.e. the input image has that number drawn 
+% on it.
+% See "Week4 LectureII.pdf" for more details.
 for c=1:1:m,
     [maxValue, maxIndex] = max(hypothesis(c,:));
     p(c) = maxIndex;
