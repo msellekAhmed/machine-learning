@@ -37,7 +37,8 @@ X = [X0 X];    % 5000 Rows, 401 columns
 % Ouput of layer 2 (hidden layer) g(z) = sigmoid(z)
 Z2 = sigmoid(X*Theta1'); % 5000 rows, 25 cols
 
-% Full op_layer2 Matrix including x0 for layer 2
+% Full layer2 Matrix including x0 for layer 2. This will be input for  
+% layer 3
 Z2 = [ones(m,1) Z2]; % 5000 rows, 26 cols
 
 % Output of layer 3 (output layer)

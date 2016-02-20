@@ -32,7 +32,8 @@ X = [ones(m, 1) X];
 
 for i = 1:1:m
     hypothesis_i = X(i,:) * all_theta';
-    [temp, p(i)] = max(hypothesis_i);
+    [maxValue, maxIndex] = max(hypothesis_i);
+    p(i) = maxIndex;
 end
 
 
