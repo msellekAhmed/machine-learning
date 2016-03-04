@@ -31,20 +31,14 @@ squared_error = (hypothesis - y).^2; % (12 x 1)
 % Cost Function
 J = (1/(2*m))*sum(squared_error); % (1 x 1)
 % Regularization parameter
-reg_param = (lambda/(2*m))*sum(theta(2:end).^2);
+reg_term = (lambda/(2*m))*sum(theta(2:end).^2);
 % Regularized cost Function
-J = J + reg_param;
+J = J + reg_term;
 
-%% Get the gradient
-grad_0 = (1/m)*sum( X(:,1)'*(hypothesis - y) ); % for j = 0
-grad_1 = (1/m)*sum( X(:,2:end)'*(hypothesis - y) ) +(lambda/m)*(theta(2:end)); % for j >= 0
+%% Get the regularized gradient
+grad_0 = (1/m)*( X(:,1)'*(hypothesis - y) ); % for j = 0
+grad_1 = (1/m)*( X(:,2:end)'*(hypothesis - y) ) +(lambda/m)*(theta(2:end)); % for j >= 0
 grad = [grad_0; grad_1];
-
-
-
-
-
-
 % =========================================================================
 
 grad = grad(:);
