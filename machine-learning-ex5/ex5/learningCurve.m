@@ -54,10 +54,13 @@ error_val   = zeros(m, 1);
 % ---------------------- Sample Solution ----------------------
 
       for i = 1:m
+          % For training set we change the size of m
           Xtrain = X(1:i, :);
           ytrain = y(1:i);
           theta = trainLinearReg(Xtrain, ytrain, lambda);
           error_train(i) = linearRegCostFunction( Xtrain, ytrain, theta, 0); %set lambda to zero for train set
+          % For validation set, we always validate over the whole
+          % validation set
           error_val(i) = linearRegCostFunction( Xval, yval, theta, 0); %set lambda to zero for CV set
       end
 
