@@ -39,14 +39,19 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
-
-
-
-
-
-
-
-
+for i = 1:1:length(lambda_vec)
+    % For each lambda above, train the model using the training set, 
+    % and different values of lambda given above. i.e. find best Theta
+    % for each lambda. Once found, use that theta to get the train-set
+    % error and crossvalidation-set error.
+    lambda = lambda_vec(i);
+    theta = trainLinearReg(X, y, lambda);
+    % Note that while finding train-set and cv-set error, we do not
+    % use regularization, hence putting lambda as 0 below:
+    error_train(i) = linearRegCostFunction(X, y, theta, 0);
+    error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+    
+end
 
 % =========================================================================
 
