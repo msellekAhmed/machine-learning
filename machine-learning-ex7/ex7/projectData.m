@@ -18,8 +18,10 @@ Z = zeros(size(X, 1), K);
 %                    projection_k = x' * U(:, k);
 %
 
-
-
+% we only choose first K columns of U, since we are reducing to k
+% dimensions
+Ureduce = U(:, 1:K); 
+Z = X*Ureduce; % (kx2) x (50x2)
 
 % =============================================================
 

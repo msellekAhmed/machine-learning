@@ -1,0 +1,22 @@
+In the image compression example, the idea is as below:
+
+The images is formed of over 1000 colors, each color is formed of either R G B (0 to 255 intensity).
+So we have X = 1000 X 3. Lets say each entry in this X i.e. each row is represented by *.
+Now for the sake of simplicity, imagine each color is just formed of either R or G (0 to 255 intensity).
+So what we have is a plot of 1000 *'s w.r.t R and G as below:
+
+      |
+      |         * ** * 
+      |    * *           * * * 
+      |     * * * *  
+    R |  *   *
+      |    *
+      | *     *  *   * 
+      |
+    --|------------------------
+      |            G
+
+
+We run the K-means algorithm on it by specifying K=16. What happens is the algorithm finds 16 clusters in the
+above plot. We use the centroid of each cluster as our new *, and replace all the entries in that cluster by this 
+value i.e replace all the colors in that cluster by this color. Thus we have a final image with 16 colors.
