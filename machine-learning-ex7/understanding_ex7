@@ -20,3 +20,14 @@ So what we have is a plot of 1000 *'s w.r.t R and G as below:
 We run the K-means algorithm on it by specifying K=16. What happens is the algorithm finds 16 clusters in the
 above plot. We use the centroid of each cluster as our new *, and replace all the entries in that cluster by this 
 value i.e replace all the colors in that cluster by this color. Thus we have a final image with 16 colors.
+
+
+For faces PCA example, 
+
+Here we have 5000 faces. Each face is a 32 x 32 = 1024 pixels image. So we represent this using input matrix X which has
+5000 rows and 1024 colums. Each row is an image. Now we perform PCA. First we run SVD to get U, and then use this U to reduce the dimension by choosing the desired low-dimension value K. We have chosen K=100, and so our  matrix X, we convert it from 5000 x 1024 to 5000 x 100.
+
+Whats plotted in the example is a little bit misleading. 
+First we plot the original faces. Then we plot the first 36 eigenvectors because they are the ones with most variations. And then we plot the
+recovered faces (which is again 5000 x 1024 with approximate values from the origanl 5000 x 1024 matrix). We NEVER plot the reduced dimension
+5000 x 100 faces.
